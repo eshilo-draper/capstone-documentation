@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Project - Database Design</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <h1 class="mx-5 mt-3 text-center">Capstone Project - Database Design</h1>
+            <object data="nav.html" width="100%"></object>
+        </header>
+    </div>
+    
+    <img src="database-design.png" class="mx-auto d-block">
+
+    <div class="container w-50 mt-5">
+        <h3>Notes</h3>
+        <ul>
+            <li>passwordHash contains the password which has been salted and hashed with SHA256</li>
+            <li>salt contains the randomly generated salt used for password hashing</li>
+            <li>
+                the actual uploaded files are stored on the main server, not in the SQL server
+                <ul>
+                    <li>stored in "Uploads" folder</li>
+                    <li>same applies to icons, stored in "Avatars" folder (default value: "Avatars/Default.png")</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container w-50 mt-5">
+        <h3>SQL code (auto-generated)</h3>
+        <pre class="bg-light border px-4">
+            <code>
+USE [SE245_EShilo-Draper]
+GO
+/****** Object:  Table [dbo].[Capstone_Login]    Script Date: 8/7/2021 8:57:10 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Capstone_Login](
+    [userID] [int] IDENTITY(1,1) NOT NULL,
+    [username] [nvarchar](20) NOT NULL,
+    [passwordHash] [nvarchar](20) NOT NULL,
+    [salt] [nvarchar](20) NOT NULL,
+    [displayName] [nvarchar](20) NOT NULL,
+    [email] [nvarchar](320) NOT NULL,
+    [dob] [date] NOT NULL,
+    [bio] [text] NULL,
+    [icon] [nvarchar](20) NULL,
+CONSTRAINT [PK_Capstone_Login] PRIMARY KEY CLUSTERED 
+(
+    [userID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Capstone_Uploads]    Script Date: 8/7/2021 8:57:10 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Capstone_Uploads](
+    [imageID] [int] IDENTITY(1,1) NOT NULL,
+    [userID] [int] NOT NULL,
+    [imagePath] [nvarchar](30) NOT NULL,
+    [title] [nvarchar](30) NOT NULL,
+    [medium] [nvarchar](30) NOT NULL,
+    [completionDate] [date] NOT NULL,
+    [description] [text] NOT NULL,
+CONSTRAINT [PK_Capstone_Uploads] PRIMARY KEY CLUSTERED 
+(
+    [imageID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+            </code>
+        </pre>
+    </div>
+</body>
+</html>
