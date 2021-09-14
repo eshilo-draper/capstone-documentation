@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan Shilo-Draper - Capstone Project</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // load nav
+        $(function(){
+            $("#main-nav").load("nav.html");
+        });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <h1 class="mx-5 mt-3 text-center">Capstone Project - About Me</h1>
+            <div id="main-nav" class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"></nav>
+        </header>
+        <div class="mx-auto my-5 d-block w-75 bg-light p-4">
+            <h3>About Ethan</h3>
+            <p>
+                I am an aspiring software engineer from Gill, Massachusetts. My inspiration for this project came from my love of art and creation, as I have been drawing for as long as I have been able to hold a writing implement. I have also found creativity to be a big part of software development and engineering, which is what gave me an interest in the field and led me down the path I am on today.
+            </p>
+
+            <h3>Ethan's role in this project</h3>
+            <p>I worked individually on the capstone project, and as such was responsible for every piece of it. This includes (but is not limited to):</p>
+            <ul>
+                <li>Designing layout and interactivity
+                    <ul>
+                        <li>Organizing image displays on gallery and dashboard pages</li>
+                        <li>Creating unified layout for forms across the site</li>
+                        <li>Adding gallery navigation features</li>
+                    </ul>
+                </li>
+                <li>Designing databases and writing code to interact with them via SQL
+                    <ul>
+                        <li>Programming account registration and login</li>
+                        <li>Handling user uploads</li>
+                        <li>Retrieving user gallery information</li>
+                    </ul>
+                </li>
+                <li>Implementing site security
+                    <ul>
+                        <li>Enabling password encryption using SHA256</li>
+                        <li>Ensuring protected pages could not be accessed without login</li>
+                        <li>Ensuring users could not edit each other's posts</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
